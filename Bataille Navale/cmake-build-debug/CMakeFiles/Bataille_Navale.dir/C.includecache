@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/MA 20/Bataille Navale/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+Windows.h
+-
+time.h
+-
+math.h
+-
+
