@@ -388,8 +388,8 @@ int main() {
                 fscanf(fichier,"%d",&score);
                 fscanf(fichier,"%d",&tire);
                 printf("\n\t 1ST    %s    %d points   %d tire(s)", pseudo, score, tire);
-
-
+                Sleep(1000);
+                system("cls");
 
 
                 break;
