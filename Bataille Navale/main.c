@@ -100,10 +100,10 @@ int main() {
     int ligne,colonne;
     int grand = 5,moyen = 4,sousmarinun = 3,sousmarindeux = 3,petit = 2,vietotale = 17,sortie = 1;
     int score = 0, tire = 0;
+    char menu_option[5];
+
 
     FILE* fichier = fopen("scores.txt", "a+");
-
-
 
 
 
@@ -381,23 +381,57 @@ int main() {
                 }while(sortie != 0 && vietotale != 0);
                 break;
             case 2:
+                system("cls");
+                fclose(fichier);
+                fichier = fopen("scores.txt", "a+");
                 printf("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 printf("\n\t~~~~~~~~~  meilleures joueurs  ~~~~~~~~~~~~");
                 printf("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
-                fscanf(fichier,"%s",&pseudo);
-                fscanf(fichier,"%d",&score);
-                fscanf(fichier,"%d",&tire);
-                printf("\n\t 1ST    %s    %d points   %d tire(s)", pseudo, score, tire);
-                Sleep(1000);
+                while(!feof(fichier)){
+                    fscanf(fichier,"%s",&pseudo);
+                    fscanf(fichier,"%d",&score);
+                    fscanf(fichier,"%d",&tire);
+                    printf("\n\t Joueur    %s    %d points   %d tire(s)", pseudo, score, tire);
+                    Sleep(100);
+                }
+
+
+                printf("\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                printf("\n\n\t Appuyez sur n'import quel touche + Enter ");
+                printf("\n\n\t pour retourner au Menu Principale");
+                printf("\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t");
+                scanf("%s",&menu_option);
+                fclose(fichier);
+                fichier = fopen("scores.txt", "a+");
                 system("cls");
 
+                break;
+            case 3:
+                system("cls");
+                printf("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                printf("\n\n\t Pour vous dirigez dans les Menus tapez le");
+                printf("\n\t chiffre correspondant à l'options souhaitée ");
+                printf("\n\t puis apuyez sur Entrer.");
+                printf("\n\n\t Pour votre information vos choix et vos");
+                printf("\n\t scores seront enregistres dans un fichier");
+                printf("\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                printf("\n\n\t Appuyez sur n'import quel touche + Enter ");
+                printf("\n\n\t pour retourner au Menu Principale");
+                printf("\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t");
 
+                scanf("%s",&menu_option);
+                system("cls");
                 break;
-            case 3: printf ("Vous etes en tricycle\n");
+            case 4:
+                system("cls");
+                printf("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                printf("\n\n\t Vous avez choisi de quiter le jeux.");
+                printf("\n\n\t A la prochaine :)");
+                printf("\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n\n\n");
+                Sleep(2000);
+                menu_un=0;
                 break;
-            case 4: menu_un=0;
-                break;
-            default: printf ("Vous etes à pied ou avez trop de roues\n");
+            default: printf ("Vous n'avez choisi aucune options viable\n");
                 break;
         }
     }while (menu_un!=0);
