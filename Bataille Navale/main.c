@@ -48,7 +48,7 @@ int main() {
             {'~','~','~','~','~','~','~','~','~'},
             {'~','~','~','~','~','~','~','~','~'},
     };
-    int jeu1[9][9] = {                                          //invible au joueur, carte numéro 1
+    int jeu1[9][9] = {                                          //invisible au joueur, carte numéro 1
             /*12,3,4,5,6,7,8,9*/
             {1,1,0,0,0,0,0,0,22},
             {0,0,0,0,0,4,0,0,22},
@@ -61,7 +61,7 @@ int main() {
             {0,0,0,0,0,0,0,0,0},
 
     };
-    int jeu2[9][9] = {                                          //invible au joueur, carte numéro 2
+    int jeu2[9][9] = {                                          //invisible au joueur, carte numéro 2
             /*12,3,4,5,6,7,8,9*/
             {0,1,0,0,0,0,0,0,0},
             {0,1,0,0,0,22,0,0,0},
@@ -74,7 +74,7 @@ int main() {
             {0,3,0,0,4,4,4,4,4},
 
     };
-    int jeu3[9][9] = {                                          //invible au joueur, carte numéro 3
+    int jeu3[9][9] = {                                          //invisible au joueur, carte numéro 3
             /*12,3,4,5,6,7,8,9*/
             {0,4,0,2,2,2,0,0,0},
             {0,4,0,0,0,0,1,0,0},
@@ -87,7 +87,7 @@ int main() {
             {0,0,0,0,0,0,0,0,0},
 
     };
-    int jeu[9][9] = {                                           //invible au joueur, carte tempon
+    int jeu[9][9] = {                                           //invisible au joueur, carte tempon
             /*12,3,4,5,6,7,8,9*/
             {0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0},
@@ -101,8 +101,10 @@ int main() {
 
     };
     int ligne,colonne;
-    int grand = 5,moyen = 4,sousmarinun = 3,sousmarindeux = 3,petit = 2,vietotale = 17,sortie = 1;
+    int sortie = 1;
+    int grand = 5,moyen = 4,sousmarinun = 3,sousmarindeux = 3,petit = 2,vietotale = 17;
     int score = 0, tire = 0;
+
     char menu_option[5];
 
 
@@ -337,7 +339,7 @@ int main() {
                                     }
                                 } else { sortie = 0; }
                             } while (vietotale != 0 && sortie != 0);                                                        //sortie de de la boucle que si le l'a choisi ou qu'il a gagné
-                            if (vietotale == 0) {                                                                           //affiche le message que si le joueur a gagné
+                            if (vietotale == 0) {                              +                                             //affiche le message que si le joueur a gagné
                                 printf("'''~~~~~~~~~~~~~~~~''''\n"
                                        "'''YAY TU AS Gagné''''\n");
                                 printf("'''~~~~~~~~~~~~~~~~''''\n"
@@ -349,6 +351,7 @@ int main() {
                             fprintf(fichier, "%s", "\n");
                             fprintf(fichier,"%d",tire);                                                                     //inscrit le nombre de tire du joueur dans le fichier score
                             fprintf(fichier, "%s", "\n");
+                            system("cls");
                             break;
                         case 2:
                             printf("\n\t\t Vous etes dans le sous-menu: 2 Choix des cartes \n");
